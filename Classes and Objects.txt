@@ -1,0 +1,85 @@
+** Classes and Objects
+----------------------
+	- We use objects to represent entities that exist in the real world.
+
+	- For example a student.
+
+	- One of the first ideas is that we don't have a data type to represent a student, like strings, numbers of booleans.
+
+	- We also would like to define some actions or functionality related to that student, for example.
+
+	* An Object Oriented Programming Language:
+	------------------------------------------
+		. Allows us to create and use more complicated data types (objects).
+		. And object oriented programming lanugage allows us to create our own custom data types.
+	
+	- How can we go about creating our student data type for example:
+		. First we need to create a student's class -----> Specification or blueprint of a data type (defines, attributes and functionality).
+		
+		Example:
+		--------
+
+		Student
+		---------------------------
+		name (string)
+		gpa (number)
+		year (string)
+		hasScholarship (boolean)
+		---------------------------
+		hasHonors() (func)
+		giveSchorlarship() (func)
+
+	- An object is an instance of a class.
+
+		Class -----> Object
+
+		Example:
+		--------
+		Each student will be an instance of the Student class defined above:
+
+		Student Object 1               Student Object 2               Student Object 3
+		----------------               ----------------               ----------------
+		Kate			       Jack                           Sawyer
+		3.4                            2.6                            3.9
+		Sophomore                      Senior                         Freshman
+		True                           False                          True
+		-----------------              ----------------               ----------------
+		hasHonors()                    hasHonors()                    hasHonors()
+		giveScholarship()              giveScholarship()              giveScholarship()
+
+	- We manipulate the Objects, not the classes.
+
+	- We can module anything that we can think of:
+
+		Lightbulb                Microphone                  Animal                 Date
+		---------                ----------                  ------                 ----     
+		isOn (boolean)           color (string)              color (string)         month (number)
+		watts (number)           isAnalog (boolean)          age (number)           year (number)
+		---------                ----------                  ------                 -----
+		turnOn() (func)          record() (func)             speak (func)           toString (func)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
