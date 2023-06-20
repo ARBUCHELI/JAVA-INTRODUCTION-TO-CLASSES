@@ -1,0 +1,240 @@
+** JAVA: INTRODUCTION TO CLASSES
+--------------------------------
+
+* Introduction to Classes
+-------------------------
+	- OBJECT ORIENTED PROGRAMMING --> Programs are built around objects and their interactions --> An object contains state and behavior.
+
+	Let’s review with another example, a savings account at a bank.
+
+		What should a savings account know?
+
+			. The balance of money available.
+		
+		What should a savings account do?
+
+			. Deposit money.
+			. Withdraw money.
+
+	Imagine two people have accounts that are instances of the SavingsAccount class. They share behavior (how they deposit and withdraw) but have individual state (their balances), 
+	and even with the same balance amount these accounts are separate entities.
+
+===================================================================================================================================================================
+
+* Classes: Syntax
+-----------------
+	The fundamental concept of object-oriented programming is the class.
+
+	A class is the set of instructions that describe how an instance can behave and what information it contains.
+
+	Java has pre-defined classes such as System, which we’ve used in logging text to our screen, but we also need to write our own classes for the custom needs of a program.
+
+	Here’s a definition of a Java class:
+
+		public class Car {
+		// scope of Car class starts after curly brace
+ 
+  			public static void main(String[] args) {
+    				// scope of main() starts after curly brace
+ 
+    				// program tasks
+ 
+  			}
+  			// scope of main() ends after curly brace
+ 
+		}
+		// scope of Car class ends after curly brace
+
+	This example defines a class named Car. public is an access level modifier that allows other classes to interact with this class. For now, all classes will be public.
+
+	This class has a main() method, which lists the tasks performed by the program. main() runs when we execute the compiled Car.class file.
+
+==================================================================================================================================================================
+
+* Classes: Constructors
+-----------------------
+	In order to create an object (an instance of a class), we need a constructor method. The constructor is defined within the class.
+
+	Let’s take a look at the Car class with a constructor. The constructor, Car(), shares the same name as the class:
+
+		public class Car {
+  			// Constructor method
+  			public Car() {
+    				// instructions for creating a Car instance
+  			}  
+ 
+  			public static void main(String[] args) {
+    				// body of main method
+  			}
+		}
+
+	To create an instance, we need to call or invoke the constructor within main(). The following example assigns a Car instance to the variable ferrari:
+
+		public class Car {
+ 
+  			public Car() {
+    				// instructions for creating a Car instance
+  			}
+ 
+  			public static void main(String[] args) {
+    				// Invoke the constructor
+    				Car ferrari = new Car(); 
+  			}
+		}
+
+	In this example, instead of being declared with a primitive data type like int or boolean, our variable ferrari is declared as a reference data type. This means that the value of 
+	our variable is a reference to an instance’s memory address. During its declaration, the class name is used as the variable’s type. In this case, the type is Car.
+
+	After the assignment operator, (=), we invoke the constructor method: Car(), and use the keyword new to indicate that we’re creating an instance. Omitting new causes an error.
+
+	If we were to output the value of ferrari we would see its memory address:
+
+		Car@76ed5528
+
+	Keep Reading: AP Computer Science A Students
+	--------------------------------------------
+	We can initialize a reference-type variable without assigning it a reference if we utilize the special value null. Something that is null has no value; if we were to assign null 
+	to an object, it would have a void reference.
+
+	For example, in the following code snippet, we’ll create an instance of Car, assign it a reference, and then change its value to null:
+
+		Car thunderBird = new Car();
+		System.out.println(thunderBird); // Prints: Car@76ed5528
+ 
+		thunderBird = null; // change value to null
+		System.out.println(thunderBird); // Prints: null
+	
+	It’s important to note that if we use a null reference to call a method or access an instance variable, we will receive a NullPointerException error.
+
+==================================================================================================================================================================
+
+* Classes: Instance Fields
+--------------------------
+	Our last exercise ended with printing an instance of Store, which looked something like Store@6bc7c054. The first part, Store, refers to the class, and the second part @6bc7c054 
+	refers to the instance’s location in the computer’s memory.
+
+	We don’t care about memory location, but our instances have no other characteristics! When an object is created, the constructor sets the initial state of the object. The state is 
+	made up of associated data that represents the characteristics of an object.
+
+	We’ll add data to an object by introducing instance variables, or instance fields.
+
+	We want Car instances of different colors, so we declare a String color instance field. Often times, instance variables are described as a “has-a” relationship with the object. 
+	For example, a Car “has-a” color. Another way to think of this is that instance variables are the nouns and adjectives associated with an object. What qualities other than color 
+	might a car have?
+
+		public class Car {
+  			/*
+  			declare fields inside the class
+  			by specifying the type and name
+  			*/
+  			String color;
+ 
+  			public Car() {
+    				/* 
+    				instance fields available in
+   	 			scope of constructor method
+    				*/
+  			}
+ 
+  			public static void main(String[] args) {
+    				// body of main method
+  			}
+		}
+
+	The declaration is within the class and the instance variable will be available for assignment inside the constructor.
+
+	Fields are a type of state each instance will possess. One instance may have "red" as its color, another "blue", etc. It’s the job of the constructor to give these instance fields 
+	initial value. We’ll learn how to do this in the next exercise.
+
+
+==================================================================================================================================================================
+
+* Classes: Constructor Parameters
+---------------------------------
+	To create objects with dynamic, individual states, we’ll use a combination of the constructor method and instance fields.
+
+	In order to assign a value to an instance variable, we need to alter our constructor method to include parameters so that it can access the data we want to assign to an instance.
+
+	We’ve already seen a parameter in the main() method: String[] args, but this is the first time we’re using the parameter value within a method body.
+
+	The Car constructor now has a parameter: String carColor:
+
+		public class Car {
+  			String color;
+  			// constructor method with a parameter
+  			public Car(String carColor) {
+    				// parameter value assigned to the field
+    				color = carColor;
+  			}
+  			public static void main(String[] args) {
+    				// program tasks
+  			}
+		}
+
+	When a String value gets passed into Car(), it is assigned to the parameter carColor. Then, inside the constructor, carColor will be assigned as the value to the instance variable 
+	color.
+
+	Our method also has a signature which defines the name and parameters of the method. In the above example, the signature is Car(String carColor).
+
+	In the next exercise, we’ll learn how to pass values into a method!
+
+	Keep Reading: AP Computer Science A Students
+	--------------------------------------------
+	There are two types of parameters: formal and actual. A formal parameter specifies the type and name of data that can be passed into a method. In our example above, String 
+	carColor is a formal parameter; carColor will represent whatever String value is passed into the constructor. We’ll learn about actual parameters in the next exercise.
+
+	In Java, because of constructor overloading, a class can have multiple constructors as long as they have different parameter values. The signature is useful in that it helps the 
+	compiler differentiate between the different methods. For example:
+
+		public class Car {
+  			String color;
+  			int mpg;
+  			boolean isElectric;
+ 
+  			// constructor 1
+  			public Car(String carColor, int milesPerGallon) {
+    				color = carColor;
+    				mpg = milesPerGallon;
+  			}
+  
+			// constructor 2
+  			public Car(boolean electricCar, int milesPerGallon) {
+    				isElectric = electricCar;
+    				mpg = milesPerGallon;
+  			}
+		}
+
+	In the example above, there are two constructors. When we initialize an object, the compiler will know which constructor to use because of the values we pass into it. For example, 
+	Car myCar = new Car(true, 40) will be created by the second constructor because the arguments match the type and order of the second constructor’s signature.
+
+	If we do not define a constructor, the Java compiler will generate a default constructor that contains no arguments and assigns the object default values. Default values can be 
+	created by assigning values to the instance fields during their declaration:
+
+		public class Car {
+  			String color = "red";
+  			boolean isElectric = false;
+  			int cupHolders = 4;
+ 
+  			public static void main(String[] args) {
+    				Car myCar = new Car();
+    				System.out.println(myCar.color); // Prints: red
+  			}
+		}
+
+==================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
